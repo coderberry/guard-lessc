@@ -1,0 +1,3 @@
+guard :lessc, :in_file => 'less/main.less', :out_file => 'public/stylesheets/application.css', :compress => true do
+  watch(%r{^.*\.less$})
+end
