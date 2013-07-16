@@ -2,7 +2,7 @@ require "guard"
 require "guard/guard"
 
 module Guard
-  module Lessc < Guard
+  class Lessc < Guard
     require 'colorize'
 
     def initialize(watchers = [], options = {})
