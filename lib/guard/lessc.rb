@@ -8,6 +8,7 @@ module Guard
     def initialize(watchers = [], options = {})
       super
       @options = {
+          :bin_path     => 'lessc',
           :yui_compress => false,
           :compress     => false,
           :paths        => [],
@@ -27,7 +28,7 @@ module Guard
     end
 
     def lessc
-      command = "lessc #{generate_cl_arguments}"
+      command = "#{@options[:bin_path]} #{generate_cl_arguments}"
       puts command
       puts `#{command}`
     end
