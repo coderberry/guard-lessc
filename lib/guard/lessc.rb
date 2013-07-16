@@ -11,8 +11,6 @@ module Guard
           :bin_path     => 'lessc',
           :yui_compress => false,
           :compress     => false,
-          :paths        => [],
-          :optimization => 1,
           :in_file      => '',
           :out_file     => ''
       }.merge(options)
@@ -37,8 +35,7 @@ module Guard
       args = []
       args << "-x" if @options[:compress]
       args << "--yui-compress" if @options[:yui_compress]
-      args << "--paths #{@options[:paths].join(':')}" if @options[:paths].size > 0
-      args << "--optimization #{@options[:optimization]}" if @options[:optimization]
+      args << @options[:in_file] if @options[:in_file]
       args << "> #{@options[:out_file]}" if @options[:out_file]
       args.join(' ')
     end
