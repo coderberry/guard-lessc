@@ -26,6 +26,7 @@ module Guard
     end
 
     def lessc
+      system("rm #{@options[:out_file]}") if File.exist?(@options[:out_file])
       command = "#{@options[:bin_path]} #{generate_cl_arguments}"
       puts command
       puts `#{command}`
